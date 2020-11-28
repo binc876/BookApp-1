@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DocRented;
+use App\Models\Docs_Rented;
 use Illuminate\Http\Request;
 
-class DocRentedController extends Controller
+class Docs_RentedController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DocRentedController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DocRented  $docRented
+     * @param  \App\Models\Docs_rented  $docRented
      * @return \Illuminate\Http\Response
      */
-    public function show(DocRented $docRented)
+    public function show(Docs_Rented $docRented)
     {
         //
     }
@@ -52,10 +52,10 @@ class DocRentedController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DocRented  $docRented
+     * @param  \App\Models\Docs_rented  $docRented
      * @return \Illuminate\Http\Response
      */
-    public function edit(DocRented $docRented)
+    public function edit(Docs_Rented $docRented)
     {
         //
     }
@@ -64,10 +64,10 @@ class DocRentedController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DocRented  $docRented
+     * @param  \App\Models\Docs_rented  $docRented
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DocRented $docRented)
+    public function update(Request $request, Docs_Rented $docRented)
     {
         //
     }
@@ -75,10 +75,10 @@ class DocRentedController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DocRented  $docRented
+     * @param  \App\Models\Docs_rented  $docRented
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DocRented $docRented)
+    public function destroy(Docs_Rented $docRented)
     {
         //
     }

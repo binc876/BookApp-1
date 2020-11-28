@@ -19,6 +19,9 @@ class Document extends Model
         'price_per_day',
         'price_per_week',
         'price_per_month',
+        'user_id',
+        'doctype_id',
+        'genre_id',
     ];
 
     /**
@@ -58,6 +61,6 @@ class Document extends Model
      */
     public function rental()
     {
-        return $this->hasMany('App\Models\DocRented');
+        return $this->hasMany('App\Models\Docs_Rented');
     }
 }

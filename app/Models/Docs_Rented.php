@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DocRented extends Model
+class Docs_Rented extends Model
 {
     use HasFactory;
     /**
@@ -14,9 +14,18 @@ class DocRented extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
+        'document_id',
         'price',
         'expiry_date',
     ];
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'docs_rented';
 
     /**
      * Get the user that made the rental.

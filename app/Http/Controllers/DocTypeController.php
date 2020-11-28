@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DocType;
+use App\Models\Doctype;
 use Illuminate\Http\Request;
 
-class DocTypeController extends Controller
+class DoctypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DocTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DocType  $docType
+     * @param  \App\Models\Doctype  $docType
      * @return \Illuminate\Http\Response
      */
-    public function show(DocType $docType)
+    public function show(Doctype $docType)
     {
         //
     }
@@ -52,10 +52,10 @@ class DocTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DocType  $docType
+     * @param  \App\Models\Doctype  $docType
      * @return \Illuminate\Http\Response
      */
-    public function edit(DocType $docType)
+    public function edit(Doctype $docType)
     {
         //
     }
@@ -64,10 +64,10 @@ class DocTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DocType  $docType
+     * @param  \App\Models\Doctype  $docType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DocType $docType)
+    public function update(Request $request, Doctype $docType)
     {
         //
     }
@@ -75,10 +75,10 @@ class DocTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DocType  $docType
+     * @param  \App\Models\Doctype  $docType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DocType $docType)
+    public function destroy(Doctype $docType)
     {
         //
     }

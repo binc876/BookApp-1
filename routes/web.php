@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DocRentedController;
-use App\Http\Controllers\DocTypeController;
+use App\Http\Controllers\Docs_RentedController;
+use App\Http\Controllers\DoctypeController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\RatingController;
@@ -35,8 +35,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resources([
-    'docsrented' => DocRentedController::class,
-    'doctypes' => DocTypeController::class,
+    'docs_rented' => Docs_RentedController::class,
+    'doctypes' => DoctypeController::class,
     'documents' => DocumentController::class,
     'genres' => GenreController::class,
     'ratings' => RatingController::class,

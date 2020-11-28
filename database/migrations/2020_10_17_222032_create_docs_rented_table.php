@@ -18,7 +18,7 @@ class CreateDocsRentedTable extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('document_id')->constrained('documents');
             $table->integer('price');
-            $table->dateTime('expiry_date');
+            $table->timestamp('expiry_date');
             $table->timestamps();
         });
     }
