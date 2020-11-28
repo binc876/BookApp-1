@@ -19,7 +19,7 @@ class LoginResponse implements LoginResponseContract
 
         switch ($role) {
             case 'author':
-                return redirect()->intended('author.dashboard');
+                return redirect()->intended('author/dashboard');
             case 'reader':
                 return redirect()->intended('/reader/dashboard');
             default:

@@ -16,7 +16,7 @@
 
         <style>
             body {
-                font-family: 'Nunito';
+                font-family: 'Nunito' !important;
             }
         </style>
         
@@ -109,7 +109,7 @@
         <p
           class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"
         >
-          Rent documents for variable periods of time that suit <b>you</b>!
+          Rent documents for however long suits <b>you</b>!
           
         </p>
 

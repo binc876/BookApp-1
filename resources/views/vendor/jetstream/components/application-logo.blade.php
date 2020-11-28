@@ -6,6 +6,7 @@
 <a
   class="text-black no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
   href="#"
+  style="font-family: 'Nunito' !important;"
 >
   <svg
     class="h-6 w-6 inline-block fill-current text-orange-600"

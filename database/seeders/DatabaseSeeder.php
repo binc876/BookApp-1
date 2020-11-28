@@ -9,6 +9,7 @@ use App\Models\Genre;
 use App\Models\Document;
 use App\Models\Rating;
 use App\Models\Docs_Rented;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 
@@ -48,14 +49,14 @@ class BookAppSeeder extends Seeder
         $tami = User::create(array(
             'name'         => 'Tami',
             'email'         => 'tami24tami@gmail.com',
-            'password' =>  'testing',
+            'password' =>  Hash::make('testing'),
             'phone_number' => '+260966567855',
             'role' => 'author'
         ));
         $mutaminwa = User::create(array(
             'name'         => 'Mutaminwa',
             'email'         => 'mutaminwac@gmail.com',
-            'password' =>  'password',
+            'password' =>  Hash::make('password'),
             'phone_number' => '+260966567855',
             'role' => 'reader'
         ));
