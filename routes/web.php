@@ -26,6 +26,10 @@ Route::get('/author/dashboard', function () {
     return view('/author/dashboard');
 })->name('author.dashboard');
 
+Route::get('/author/my_docs', function () {
+    return view('/author/my_docs');
+})->name('author.docs');
+
 Route::get('/reader/dashboard', function () {
     return view('/reader/dashboard');
 })->name('reader.dashboard');
@@ -36,7 +40,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resources([
     'docs_rented' => Docs_RentedController::class,
-    'doctypes' => DoctypeController::class,
     'documents' => DocumentController::class,
     'genres' => GenreController::class,
     'ratings' => RatingController::class,

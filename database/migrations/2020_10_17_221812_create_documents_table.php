@@ -21,8 +21,8 @@ class CreateDocumentsTable extends Migration
             $table->float('price_per_week');
             $table->float('price_per_month');
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('doctype_id')->constrained('doctypes');
             $table->foreignId('genre_id')->constrained('genres');
+            $table->string('path');
             $table->timestamps();
         });
     }

@@ -13,9 +13,14 @@
                 <!-- Navigation Links -->
                 @auth
                 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('author.dashboard') }}" :active="request()->routeIs('author.dashboard')">
                             {{ __('Dashboard') }}
+                        </x-jet-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('author.docs') }}" :active="request()->routeIs('author.docs')">
+                            {{ __('My Docs') }}
                         </x-jet-nav-link>
                     </div>
                 @endauth

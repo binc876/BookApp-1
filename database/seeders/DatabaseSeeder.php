@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Doctype;
 use App\Models\Genre;
 use App\Models\Document;
 use App\Models\Rating;
@@ -68,10 +67,6 @@ class BookAppSeeder extends Seeder
             'role' => 'reader'
         ));
     
-        Doctype::truncate();
-        $book = Doctype::create(['name' => 'Book']);
-        Doctype::create(['name' => 'Journal']);
-        Doctype::create(['name' => 'Research Paper']);
     
         Genre::truncate();
         $fiction = Genre::create(['name' => 'Fiction']);
@@ -85,14 +80,13 @@ class BookAppSeeder extends Seeder
             'price_per_week' => 50,
             'price_per_month' => 100, 
             'user_id' => $tami->id ,
-            'doctype_id' => $book->id ,
             'genre_id' => $fiction->id 
         ));
 
         Rating::truncate();
         $firstrating = Rating::create(array(
             'user_id' => $mutaminwa->id,
-            'document_id' => $book->id,
+            'document_id' => $railroad->id,
             'value' => 4,
             'review' => 'An excellent piece of African American Lit. I couldn"t stop gasping!' 
         ));
@@ -100,13 +94,12 @@ class BookAppSeeder extends Seeder
         Docs_Rented::truncate();
         $firstrental = Docs_Rented::create(array(
             'user_id' => $mutaminwa->id,
-            'document_id' => $book->id,
+            'document_id' => $railroad->id,
             'price' => 400,
             'expiry_date' => '2020/05/02'
         ));
 
         $railroad->genre($fiction->id);
-        $railroad->doctype($book->id);
         $railroad->author($tami->id);
 
         //$tami->document()->attach($railroad->id);

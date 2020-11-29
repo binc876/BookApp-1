@@ -14,7 +14,10 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        //
+        $documents = Document::latest()->paginate(5);
+
+        return view('documents.index', compact('documents'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +27,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        return view('documents.create');
     }
 
     /**
@@ -35,7 +38,21 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'description'=> 'required',
+            'price_per_day'=> 'required',
+            'price_per_week'=> 'required',
+            'price_per_month'=> 'required',
+            'user_id'=> 'required',
+            'genre_id'=> 'required',
+            'path'=> 'required',
+        ]);
+    
+        Document::create($request->all());
+     
+        return redirect()->route('documents.index')
+                        ->with('success','Document created successfully.');
     }
 
     /**
@@ -46,7 +63,7 @@ class DocumentController extends Controller
      */
     public function show(Document $document)
     {
-        //
+        return view('documents.show',compact('document'));
     }
 
     /**
@@ -57,7 +74,7 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        //
+        return view('documents.edit',compact('document'));
     }
 
     /**
@@ -69,7 +86,21 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'description'=> 'required',
+            'price_per_day'=> 'required',
+            'price_per_week'=> 'required',
+            'price_per_month'=> 'required',
+            'user_id'=> 'required',
+            'genre_id'=> 'required',
+            'path'=> 'required',
+        ]);
+    
+        $document->update($request->all());
+    
+        return redirect()->route('documents.index')
+                        ->with('success','Document updated successfully');
     }
 
     /**
@@ -80,6 +111,9 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
-        //
+        $document->delete();
+    
+        return redirect()->route('documents.index')
+                        ->with('success','Document deleted successfully');
     }
 }

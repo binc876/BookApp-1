@@ -20,8 +20,8 @@ class Document extends Model
         'price_per_week',
         'price_per_month',
         'user_id',
-        'doctype_id',
         'genre_id',
+        'path'
     ];
 
     /**
@@ -30,14 +30,6 @@ class Document extends Model
     public function genre()
     {
         return $this->belongsTo('App\Models\Genre');
-    }
-
-    /**
-     * Get the doctype that owns the document.
-     */
-    public function doctype()
-    {
-        return $this->belongsTo('App\Models\DocType');
     }
 
     /**
