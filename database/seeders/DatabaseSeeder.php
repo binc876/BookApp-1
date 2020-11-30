@@ -70,7 +70,7 @@ class BookAppSeeder extends Seeder
     
         Genre::truncate();
         $fiction = Genre::create(['name' => 'Fiction']);
-        Genre::create(['name' => 'Non-Fiction']);
+        $non_fiction = Genre::create(['name' => 'Non-Fiction']);
     
         Document::truncate();
         $railroad = Document::create(array(
@@ -80,7 +80,18 @@ class BookAppSeeder extends Seeder
             'price_per_week' => 50,
             'price_per_month' => 100, 
             'user_id' => $tami->id ,
-            'genre_id' => $fiction->id 
+            'genre_id' => $fiction->id ,
+            'path' => 'lololol'
+        ));
+        $testing = Document::create(array(
+            'name' => 'Testing Methods',
+            'description' => 'I am tired',
+            'price_per_day' => 5,
+            'price_per_week' => 20,
+            'price_per_month' => 50, 
+            'user_id' => $mutaminwa->id ,
+            'genre_id' => $non_fiction->id ,
+            'path' => 'lololol'
         ));
 
         Rating::truncate();
@@ -95,7 +106,10 @@ class BookAppSeeder extends Seeder
         $firstrental = Docs_Rented::create(array(
             'user_id' => $mutaminwa->id,
             'document_id' => $railroad->id,
+            'status' => 'pending',
             'price' => 400,
+            'payment_status' => false,
+            'payment_method' => null,
             'expiry_date' => '2020/05/02'
         ));
 

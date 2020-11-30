@@ -16,7 +16,10 @@ class Docs_Rented extends Model
     protected $fillable = [
         'user_id',
         'document_id',
+        'status',
         'price',
+        'payment_status',
+        'payment_method',
         'expiry_date',
     ];
 

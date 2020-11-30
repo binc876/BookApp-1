@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Document;
+use App\Models\User;
+use App\Models\Genre;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\Int_;
 
 class DocumentController extends Controller
 {
@@ -13,12 +16,14 @@ class DocumentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        
         $documents = Document::latest()->paginate(5);
 
         return view('documents.index', compact('documents'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -27,7 +32,8 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        return view('documents.create');
+        $genres = Genre::all(['id','name']);
+        return view('documents.create', compact('genres'));
     }
 
     /**
@@ -46,9 +52,10 @@ class DocumentController extends Controller
             'price_per_month'=> 'required',
             'user_id'=> 'required',
             'genre_id'=> 'required',
-            'path'=> 'required',
-        ]);
-    
+            'path' => 'required|mimes:txt,pdf|max:2048',
+        ]);  
+        //$path = $request->file('file')->store('public/files');
+ 
         Document::create($request->all());
      
         return redirect()->route('documents.index')
@@ -64,6 +71,7 @@ class DocumentController extends Controller
     public function show(Document $document)
     {
         return view('documents.show',compact('document'));
+        
     }
 
     /**
@@ -74,7 +82,8 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        return view('documents.edit',compact('document'));
+        $genres = Genre::all(['id','name']);
+        return view('documents.edit',compact('document'), compact('genres'));
     }
 
     /**
@@ -115,5 +124,18 @@ class DocumentController extends Controller
     
         return redirect()->route('documents.index')
                         ->with('success','Document deleted successfully');
+    }
+
+    /**
+     * Display the specified resource for a particular user.
+     *
+     * @param  \App\Models\Document  $document
+     * @return \Illuminate\Http\Response
+     */
+    public function mine(Int $user)
+    {
+        $documents = Document::where('user_id', $user)->get();
+
+        return view('documents.mine', compact('documents'));
     }
 }
