@@ -8,4 +8,4 @@ BSc (Hons) Computing Degree Program. It is a Book Rental Web App that aims to so
 
 ## Technologies Used
 
-This project makes use of [Laravel](https://laravel.com/), [Laravel Jetstream](https://jetstream.laravel.com/1.x/introduction.html),  [TailwindCSS](https://tailwindcss.com/), [Livewire](https://laravel-livewire.com/), as well as other technologies. A comprehensive listing can be found in the project documentation.
+This project makes use of the TALL stack([TailwindCSS](https://tailwindcss.com/), Alpine.js, [Laravel](https://laravel.com/),   [Livewire](https://laravel-livewire.com/) ) as well as other technologies. A comprehensive listing can be found in the project documentation.
