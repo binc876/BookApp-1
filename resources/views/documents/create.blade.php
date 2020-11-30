@@ -24,7 +24,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('documents.store') }}" method="POST" enctype="multipart/form-data" >
+        <form action="{{ route('documents.store') }}" method="POST"  >
             @csrf
             <div class="bg-white px-20 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div class="">
@@ -53,7 +53,7 @@
                         <input type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="FormControlInput5" placeholder="Enter a Rental Price per Month" name="price_per_month">
                         @error('price_per_month') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
-                    <div class="mb-4">
+                    
                     <div class="mb-4">
                         <label for="FormControlInput6" class="block text-gray-700 text-sm font-bold mb-2">Genre:</label>
                         <select name="genre_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -65,7 +65,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="FormControlInput7" class="block text-gray-700 text-sm font-bold mb-2">Select File:</label>
-                        <input type="file" name="path" placeholder="Choose file" id="FormControlInput7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="file" enctype="multipart/form-data" name="path" placeholder="Choose file" id="FormControlInput7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         
                         @error('file') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
@@ -78,6 +78,7 @@
                 Save
                 </button>
             </span>
+            </div>
             
             </form>
             

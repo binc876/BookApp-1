@@ -37,6 +37,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('documents/mine/{user}', [DocumentController::class, 'mine'])
 ->name('documents.mine');
 
+Route::get('checkout/{id}', [Docs_RentedController::class, 'rent'])
+->name('checkout');
+
 
 Route::resources([
     'docs_rented' => Docs_RentedController::class,

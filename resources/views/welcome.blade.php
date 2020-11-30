@@ -120,13 +120,23 @@
         >
           Looks like you're already logged in! Go on ahead.
         </p>
-        <a href="{{ url('/dashboard') }}">
-        <button
-          class="mx-auto lg:mx-0  text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-46"
-        >
-          Dashboard
-        </button>
-        </a>
+          @if (Auth::user()->role == "admin")
+          <a href="{{ route('admin.dashboard') }}">
+          <button
+            class="mx-auto lg:mx-0  text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-46"
+          >
+            Dashboard
+          </button>
+          </a> 
+          @else
+          <a href="{{ route('documents.index') }}">
+          <button
+            class="mx-auto lg:mx-0  text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-46"
+          >
+            Dashboard
+          </button>
+          </a>
+          @endif
         @else
         <p
           class="leading-normal text-gray-800 text-base md:text-l lg:text-xl mb-8"

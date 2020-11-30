@@ -1,4 +1,3 @@
-
 @extends('layouts.reader')
  
 @section('content')
@@ -30,7 +29,7 @@
                 <br>
                 </p>
             </div>
-            <a href="">
+            <a href="{{ route('docs_rented.create',$document->id) }}">
                      <button class="bg-yellow-800 hover:opacity-75 text-white px-8 py-2">
                          Rent Now
                      </button>
