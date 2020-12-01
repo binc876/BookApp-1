@@ -72,11 +72,10 @@ class Docs_RentedController extends Controller
 
         $rental->expiry_date = $expiry;
 
-        var_dump($rental);
         //Document::create($request->all());
         //return view('checkout', compact('document'));
-        //return redirect()->route('documents.index')
-                        //->with('success','Check your books');
+        return redirect()->route('documents.index')
+                        ->with('success','Success! Check your books');
     }
 
     /**

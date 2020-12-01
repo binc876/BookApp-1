@@ -8,7 +8,7 @@
         <section class="bg-white py-8">
 
         <div class="container py-8 px-6 mx-auto">
-        <form action="{{ Docs_RentedController::rent($document->id) }}" method="POST" >
+        <form action="{{ route('checkout',$document->id) }}" method="POST" >
             @csrf
             <div class="bg-white px-20 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div class="">
