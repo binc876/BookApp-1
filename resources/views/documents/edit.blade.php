@@ -13,7 +13,7 @@
     <div class="py-12">
     <div class="max-w-7xl mx-auto align-bottom justify-center  text-left sm:align-middle sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4"> 
-        <form action="{{ route('documents.update',$document->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('documents.update',$document->id) }}" method="POST">
             @method('PUT')
             @csrf
             <div class="bg-white px-20 pt-5 pb-4 sm:p-6 sm:pb-4">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="FormControlInput7" class="block text-gray-700 text-sm font-bold mb-2">Select File:</label>
-                        <input type="file" name="path" placeholder="Choose file" id="FormControlInput7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="file" name="path" enctype="multipart/form-data" placeholder="Choose file" id="FormControlInput7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         
                         @error('file') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
