@@ -54,9 +54,17 @@ class DocumentController extends Controller
             'genre_id'=> 'required',
             'path' => 'required|mimes:txt,pdf|max:2048',
         ]);  
-        //$path = $request->file('file')->store('public/files');
- 
-        Document::create($request->all());
+        $path = $request->file('file')->store('public/files');
+        $doc = new Document;
+        $doc->name = $request->name;
+        $doc->description = $request->description;
+        $doc->price_per_day = $request->price_per_day;
+        $doc->price_per_week = $request->price_per_week;
+        $doc->price_per_month = $request->price_per_month;
+        $doc->user_id = $request->user_id;
+        $doc->genre_id = $request->genre_id;
+        $doc->path = $path;
+        //Document::create($request->all());
      
         return redirect()->route('documents.index')
                         ->with('success','Document created successfully.');
@@ -103,11 +111,20 @@ class DocumentController extends Controller
             'price_per_month'=> 'required',
             'user_id'=> 'required',
             'genre_id'=> 'required',
-            'path'=> 'required',
-        ]);
-    
-        $document->update($request->all());
-    
+            'path' => 'required|mimes:txt,pdf|max:2048',
+        ]);  
+        $path = $request->file('file')->store('public/files');
+        $doc = new Document;
+        $doc->name = $request->name;
+        $doc->description = $request->description;
+        $doc->price_per_day = $request->price_per_day;
+        $doc->price_per_week = $request->price_per_week;
+        $doc->price_per_month = $request->price_per_month;
+        $doc->user_id = $request->user_id;
+        $doc->genre_id = $request->genre_id;
+        $doc->path = $path;
+        //Document::create($request->all());
+        
         return redirect()->route('documents.index')
                         ->with('success','Document updated successfully');
     }
